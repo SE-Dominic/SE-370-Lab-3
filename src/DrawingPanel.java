@@ -28,7 +28,8 @@ class DrawingPanel extends JPanel {
 
         int width = getWidth();
         int height = getHeight();
-        int xOffset = 25;
+        int xOffset = 25; //small x adjustment from grid sides
+        int yOffset = -5; //small y adjustment from grid bottom
 
         if (width <= 2*BUFFER || height <= 2*BUFFER) return;
 
@@ -39,8 +40,8 @@ class DrawingPanel extends JPanel {
             //calculate x position within buffered area
             double x = BUFFER + xOffset + ((double) adjustedWidth / (NUMBER_OF_LINES - 1)) * i;
 
-            //start at bottom of grid area (y = height - BUFFER)
-            double yStart = height - BUFFER - 5;
+            //start at bottom of grid area (y = height - BUFFER + yOffset)
+            double yStart = height - BUFFER + yOffset;
 
             //random height within the grid area
             double yEnd = BUFFER + adjustedHeight * (0.1 + random.nextDouble() * 0.9);
