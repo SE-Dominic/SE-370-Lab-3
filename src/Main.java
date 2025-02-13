@@ -10,8 +10,7 @@ public class Main {
             window.setBounds(500, 500, 500, 500);
             window.setVisible(true);
             JPanel panel1 = new JPanel();
-            panel1.setBounds(50, 500, 50, 300);
-
+            panel1.setBounds(50, 500, 100, 300);
             window.add(panel1);
             window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         }
