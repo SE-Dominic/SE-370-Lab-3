@@ -6,10 +6,9 @@ import java.util.Random;
 
 class DrawingPanel extends JPanel {
     private static final int BUFFER = 40; //padding around grid
-    private ArrayList<Line2D.Double> lines;
-    private ArrayList<Color> colors;
-    private Random random;
-    private final int NUMBER_OF_LINES = 12;
+    private final ArrayList<Line2D.Double> lines;
+    private final ArrayList<Color> colors;
+    private final Random random;
 
     public DrawingPanel() {
         random = new Random();
@@ -33,9 +32,12 @@ class DrawingPanel extends JPanel {
 
         if (width <= 2*BUFFER || height <= 2*BUFFER) return;
 
-        int adjustedWidth = width - 2*BUFFER - (2 * xOffset);
-        int adjustedHeight = height - 2*BUFFER;
+        //height and width of acceptable area to draw lines
+        int adjustedWidth = width - 2*BUFFER - (2 * xOffset); // (window width) - (both buffers) - (offset for both sides)
+        int adjustedHeight = height - 2*BUFFER; // (window height) - (both buffer sides)
 
+        //draws 12 lines
+        int NUMBER_OF_LINES = 12;
         for (int i = 0; i < NUMBER_OF_LINES; i++) {
             //calculate x position within buffered area
             double x = BUFFER + xOffset + ((double) adjustedWidth / (NUMBER_OF_LINES - 1)) * i;
@@ -46,11 +48,12 @@ class DrawingPanel extends JPanel {
             //random height within the grid area
             double yEnd = BUFFER + adjustedHeight * (0.1 + random.nextDouble() * 0.9);
 
-            lines.add(new Line2D.Double(x, yStart, x, yEnd));
-            colors.add(new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)));
+            lines.add(new Line2D.Double(x, yStart, x, yEnd)); //draw line
+            colors.add(new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256))); //random color
         }
     }
 
+    //need to modify this method to use it in our JPanel
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -82,6 +85,7 @@ class DrawingPanel extends JPanel {
             g2d.draw(lines.get(i));
         }
 
+        //if lines list is empty make new ones
         if (lines.isEmpty()) {
             generateRandomLines();
             repaint();
