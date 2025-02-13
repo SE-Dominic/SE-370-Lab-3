@@ -2,6 +2,7 @@ import jdk.jfr.Unsigned;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Line2D;
 
 public class Draw extends JPanel {
 
@@ -14,6 +15,8 @@ public class Draw extends JPanel {
         */
          this.setBounds(x, y, width, height);
          this.setVisible(true);
+        Line2D.Double line;
+        //line.setLine(x, y, x + 100, y + 100);
     }
 
     void setX(int x) {this.x = x;}
@@ -34,7 +37,6 @@ public class Draw extends JPanel {
         int outerMargin = 20;
         int width = 100;
         int height = 200;
-
     }
 //        super.paintComponent(g);
 //        g.setColor(Color.RED);

@@ -14,20 +14,10 @@ public class Main {
         window.setVisible(true);
 
         Draw drawPanel = new Draw(500, 500, 500, 500);
-        drawPanel.setVisible(true);
-        window.add(drawPanel);
-
-        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-//            JPanel panel1 = new JPanel();
-//            panel1.setBounds(50, 500, 100, 300);
-//            Graphics g;
-//
-//            //panel1;
-//            window.add(panel1);
-//            window.paintComponents(graphics);
-
-        }
+        drawPanel.setBackground(Color.RED);
+        windowFrame.add(drawPanel);
+        windowFrame.setVisible(true);
+    }
 }
 /*
 Dominic's Branch
