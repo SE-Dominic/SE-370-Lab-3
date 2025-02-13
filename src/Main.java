@@ -2,9 +2,11 @@ import jdk.jfr.Unsigned;
 
 import java.awt.*;
 import java.awt.color.ColorSpace;
+import java.awt.geom.Line2D;
 import java.io.*;
 import javax.swing.*;
 import javax.swing.plaf.synth.ColorType;
+import javax.swing.text.JTextComponent;
 
 public class Main {
     public static void main(String[] args) {

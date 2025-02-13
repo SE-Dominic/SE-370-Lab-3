@@ -1,5 +1,6 @@
 import jdk.jfr.Unsigned;
 
+import javax.sound.sampled.Line;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
@@ -15,10 +16,12 @@ public class Draw extends JPanel {
         */
          this.setBounds(x, y, width, height);
          this.setVisible(true);
-        Line2D.Double line;
-        //line.setLine(x, y, x + 100, y + 100);
-    }
 
+    }
+    void drawLines (Graphics g) {
+        Graphics2D line = (Graphics2D) g;
+        line.drawLine(x, y, 3, 3);
+    }
     void setX(int x) {this.x = x;}
 
     void setY(int y) {this.y = y;}
@@ -28,20 +31,9 @@ public class Draw extends JPanel {
     void setHeight(int height) {this.height = height;}
 
     @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        drawBars(g);
+    public void paint(Graphics g) {
+        super.paint(g);
     }
-
-    private void drawBars(final Graphics g) {
-        int outerMargin = 20;
-        int width = 100;
-        int height = 200;
-    }
-//        super.paintComponent(g);
-//        g.setColor(Color.RED);
-//        Unsigned x1, x2, y1, y2;
-//        g.drawLine(100, 0, 100, 800);
 
 
 }
